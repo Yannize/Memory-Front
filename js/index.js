@@ -226,7 +226,6 @@ const app = {
   },
 
   init: async () => {
-    console.log(window.location.pathname);
     app.board = document.querySelector('.board');
     app.btnStart = document.querySelector('.start');
     modals.init();

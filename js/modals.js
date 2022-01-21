@@ -33,7 +33,6 @@ const modals = {
     if (message.displayForm) {
       modals.h2.textContent = message.title;
       modals.p.textContent = message.text;
-      console.log(message);
       modals.form.classList.add('active');
     } else {
       modals.h2.textContent = message.title;
@@ -75,6 +74,7 @@ const modals = {
             body: data,
           }
         );
+        window.location('/');
       } catch (error) {
         console.log(error);
       }
