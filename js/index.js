@@ -251,7 +251,8 @@ const app = {
         modals.modalScoreBoard.querySelector('table').classList.add('disabled');
       }
     } catch (error) {
-      console.log(error);
+      const err = await error.json();
+      console.log(err);
     }
   },
 };
