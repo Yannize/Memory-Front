@@ -74,7 +74,7 @@ const modals = {
             body: data,
           }
         );
-        window.location = '/';
+        window.location = '/Memory-Front/';
       } catch (error) {
         console.log(error);
       }
