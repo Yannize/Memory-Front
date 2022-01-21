@@ -52,19 +52,11 @@ const modals = {
     if (e.target[0].value === '') {
       modals.submitError =
         'vous devez entrer un pseudo pour enregistrer votre score';
-    }
-
-    if (e.target[0].length > 20) {
+    } else if (e.target[0].value.length > 20) {
       modals.submitError = 'maximum 20 charactères';
-    }
-
-    if (!/^-?[0-9]{1,2}$/.test(e.target[1].value)) {
+    } else if (!/^-?[0-9]{1,2}$/.test(e.target[1].value)) {
       modals.submitError = 'Hé ! pas touche à ce champ !!';
-    }
-
-    if (
-      !(e.target[0].value === '' && /^-?[0-9]{1,2}$/.test(e.target[1].value))
-    ) {
+    } else {
       modals.submitError = '';
     }
 
