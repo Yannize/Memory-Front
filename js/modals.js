@@ -58,7 +58,9 @@ const modals = {
       modals.submitError = 'Hé ! pas touche à ce champ !!';
     }
 
-    if (!(e.target[0].value === '' && /^[0-9]{1,2}$/.test(e.target[1].value))) {
+    if (
+      !(e.target[0].value === '' && /^-?[0-9]{1,2}$/.test(e.target[1].value))
+    ) {
       modals.submitError = '';
     }
 
