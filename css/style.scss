@@ -5,6 +5,10 @@ body {
   background: rgb(32, 47, 61);
   height: 100vh;
 
+  @media only screen and (max-width: 600px) {
+    padding: 0 2rem;
+  }
+
   button {
     width: fit-content;
     color: #fff;
@@ -19,7 +23,7 @@ body {
     transition: 0.2s;
 
     @media only screen and (max-width: 600px) {
-      padding: 2rem 0;
+      padding: 0.5rem;
     }
   }
 
