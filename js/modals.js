@@ -74,7 +74,7 @@ const modals = {
             body: data,
           }
         );
-        window.location('/');
+        window.location = '/';
       } catch (error) {
         console.log(error);
       }
