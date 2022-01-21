@@ -242,11 +242,9 @@ const app = {
           .querySelector('table')
           .classList.remove('disabled');
 
-        scores
-          .sort((a, b) => a.time - b.time)
-          .forEach((score, i) => {
-            app.createTd(score, i);
-          });
+        scores.forEach((score, i) => {
+          app.createTd(score, i);
+        });
       } else {
         modals.modalScoreBoard.querySelector('table').classList.add('disabled');
       }
