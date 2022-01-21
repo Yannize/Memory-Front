@@ -39,6 +39,11 @@ body #app {
   align-items: center;
   justify-content: space-between;
 }
+@media only screen and (max-width: 600px) {
+  body #app {
+    padding: 0;
+  }
+}
 body #app h1 {
   color: white;
   font-size: 3rem;
