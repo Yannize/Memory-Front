@@ -68,10 +68,13 @@ const modals = {
     if (!modals.submitError) {
       const data = new FormData(e.target);
       try {
-        const result = await fetch('http://localhost:3000/add-score', {
-          method: 'POST',
-          body: data,
-        });
+        const result = await fetch(
+          'https://memory-back.herokuapp.com/add-score',
+          {
+            method: 'POST',
+            body: data,
+          }
+        );
       } catch (error) {
         console.log(error);
       }
