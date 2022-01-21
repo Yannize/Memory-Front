@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/cover.png" type="image/png" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Memory - Yann H.</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Memory</h1>
+      <div class="options">
+        <button class="score-board">Tableau des scores</button>
+        <button class="start">Nouvelle Partie</button>
+      </div>
+      <div class="board"></div>
+      <div class="timer">
+        <span></span>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="body-blackout active"></div>
+
+    <div class="modal end-game">
+      <button class="close-modal">&times;</button>
+      <h2></h2>
+      <p></p>
+      <form action="/add-score" method="POST">
+        <label for="pseudo">Pseudo</label>
+        <input
+          placeholder="John Doe"
+          type="text"
+          name="pseudo"
+          id="pseudo"
+          required
+        />
+        <input type="hidden" name="time" id="time" />
+        <button class="submit">Enregistrez</button>
+      </form>
+    </div>
+
+    <div class="modal score-board active">
+      <button class="close-modal">&times;</button>
+      <h2>Tableau des Scores</h2>
+      <p>À vous de jouez ! venez vous faire une place dans l'histoire..</p>
+      <table>
+        <thead>
+          <th>Place</th>
+          <th>Pseudo</th>
+          <th>Temps</th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

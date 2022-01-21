@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+body {
+  font-family: Raleway, sans-serif;
+  background: rgb(32, 47, 61);
+  height: 100vh;
+
+  button {
+    width: fit-content;
+    color: #fff;
+    background-color: #3f87a6;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border: 2px solid transparent;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.493);
+    border-radius: 2px;
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    @media only screen and (max-width: 600px) {
+      padding: 0.5rem;
+    }
+  }
+
+  button:hover {
+    background: white;
+    color: rgb(83, 83, 83);
+    border: 2px solid #3f87a6;
+  }
+
+  #app {
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      color: rgb(255, 255, 255);
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px white;
+    }
+
+    .options {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+
+      @media only screen and (max-width: 400px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+
+    .board {
+      width: 50%;
+      margin: 0 auto;
+      padding: 0 2rem;
+      border-radius: 10px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+
+      @media only screen and (max-width: 600px) {
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media only screen and (max-height: 700px) {
+        width: 100%;
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .card {
+        position: relative;
+
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+
+        img {
+          width: 100%;
+          display: block;
+          border: 2px solid white;
+          border-radius: 10px;
+
+          user-drag: none;
+          user-select: none;
+          -moz-user-select: none;
+          -webkit-user-drag: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+        }
+
+        .front-face {
+          position: absolute;
+          transform: rotateY(90deg);
+          transition: 0.4s;
+        }
+
+        .back-face {
+          transition: 0.4s;
+          transition-delay: 0.4s;
+        }
+      }
+
+      .card.flipped {
+        .front-face {
+          transform: rotateY(0deg);
+          transition-delay: 0.4s;
+        }
+
+        .back-face {
+          transform: rotateY(90deg);
+          transition-delay: 0s;
+        }
+      }
+    }
+
+    .timer {
+      display: none;
+    }
+
+    .timer.active {
+      display: block;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      span {
+        font-family: sans-serif;
+        color: white;
+        font-size: 2rem;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 20px;
+        border: 2px solid rgb(255, 255, 255);
+        background: rgb(22, 134, 0);
+
+        border-radius: 50px;
+
+        position: relative;
+
+        .progress {
+          position: absolute;
+          background: rgb(32, 47, 61);
+          border-radius: 10px 0 0 10px;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 0%;
+        }
+      }
+    }
+  }
+
+  .modal {
+    width: 70vw;
+    max-height: 50vh;
+    border-radius: 5px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 300ms ease-in-out;
+    z-index: 2;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    @media only screen and (max-width: 600px) {
+      padding: 5rem 0 1rem;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      transform: translate(25%, 25%);
+      z-index: 3;
+      width: 50px;
+      height: 50px;
+      font-size: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 2px solid rgb(200, 200, 200);
+      letter-spacing: 1px;
+      font-family: sans-serif;
+      font-size: 1rem;
+    }
+
+    thead,
+    tfoot {
+      background-color: #3f87a6;
+      color: #fff;
+    }
+
+    tbody {
+      background-color: #e4f0f5;
+    }
+
+    td,
+    th {
+      border: 1px solid rgb(190, 190, 190);
+      padding: 1rem;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    table.disabled {
+      display: none;
+    }
+
+    form.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      width: 50%;
+      margin: auto;
+      font-size: 1.2rem;
+      border: 1px solid rgb(221, 221, 221);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.041);
+
+      label {
+        margin-bottom: 1rem;
+      }
+
+      input {
+        border: 1px solid rgb(200, 200, 200);
+        border-radius: 5px;
+        margin-bottom: 2rem;
+        padding: 0.5rem;
+        width: 100%;
+        font-size: 1.2rem;
+      }
+
+      input:focus {
+        border: 1px solid rgb(112, 25, 25);
+      }
+    }
+
+    form {
+      display: none;
+    }
+  }
+
+  .modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .body-blackout {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.774);
+    filter: blur(100px);
+    display: none;
+  }
+
+  .body-blackout.active {
+    display: block;
+  }
+}

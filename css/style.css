@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
+body {
+  font-family: Raleway, sans-serif;
+  background: #202f3d;
+  height: 100vh;
+}
+body button {
+  width: fit-content;
+  color: #fff;
+  background-color: #3f87a6;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border: 2px solid transparent;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.493);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+@media only screen and (max-width: 600px) {
+  body button {
+    padding: 0.5rem;
+  }
+}
+body button:hover {
+  background: white;
+  color: #535353;
+  border: 2px solid #3f87a6;
+}
+body #app {
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+body #app h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px white;
+}
+body #app .options {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+@media only screen and (max-width: 400px) {
+  body #app .options {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+body #app .board {
+  width: 50%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+@media only screen and (max-width: 600px) {
+  body #app .board {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-height: 700px) {
+  body #app .board {
+    width: 100%;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+body #app .board .card {
+  position: relative;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+body #app .board .card img {
+  width: 100%;
+  display: block;
+  border: 2px solid white;
+  border-radius: 10px;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+body #app .board .card .front-face {
+  position: absolute;
+  transform: rotateY(90deg);
+  transition: 0.4s;
+}
+body #app .board .card .back-face {
+  transition: 0.4s;
+  transition-delay: 0.4s;
+}
+body #app .board .card.flipped .front-face {
+  transform: rotateY(0deg);
+  transition-delay: 0.4s;
+}
+body #app .board .card.flipped .back-face {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}
+body #app .timer {
+  display: none;
+}
+body #app .timer.active {
+  display: block;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body #app .timer.active span {
+  font-family: sans-serif;
+  color: white;
+  font-size: 2rem;
+}
+body #app .timer.active .progress-bar {
+  width: 100%;
+  height: 20px;
+  border: 2px solid white;
+  background: #168600;
+  border-radius: 50px;
+  position: relative;
+}
+body #app .timer.active .progress-bar .progress {
+  position: absolute;
+  background: #202f3d;
+  border-radius: 10px 0 0 10px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+}
+body .modal {
+  width: 70vw;
+  max-height: 50vh;
+  border-radius: 5px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms ease-in-out;
+  z-index: 2;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 600px) {
+  body .modal {
+    padding: 5rem 0 1rem;
+  }
+}
+body .modal .close-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  transform: translate(25%, 25%);
+  z-index: 3;
+  width: 50px;
+  height: 50px;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+body .modal h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+body .modal table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #c8c8c8;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+body .modal thead,
+body .modal tfoot {
+  background-color: #3f87a6;
+  color: #fff;
+}
+body .modal tbody {
+  background-color: #e4f0f5;
+}
+body .modal td,
+body .modal th {
+  border: 1px solid #bebebe;
+  padding: 1rem;
+}
+body .modal td {
+  text-align: center;
+}
+body .modal p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+body .modal table.disabled {
+  display: none;
+}
+body .modal form.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 50%;
+  margin: auto;
+  font-size: 1.2rem;
+  border: 1px solid #dddddd;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.041);
+}
+body .modal form.active label {
+  margin-bottom: 1rem;
+}
+body .modal form.active input {
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1.2rem;
+}
+body .modal form.active input:focus {
+  border: 1px solid #701919;
+}
+body .modal form {
+  display: none;
+}
+body .modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+body .body-blackout {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.774);
+  filter: blur(100px);
+  display: none;
+}
+body .body-blackout.active {
+  display: block;
+}
+
+/*# sourceMappingURL=style.css.map */
