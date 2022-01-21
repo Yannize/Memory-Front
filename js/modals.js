@@ -54,7 +54,11 @@ const modals = {
         'vous devez entrer un pseudo pour enregistrer votre score';
     }
 
-    if (!/^[0-9]{1,2}$/.test(e.target[1].value)) {
+    if (e.target[0].length > 20) {
+      modals.submitError = 'maximum 20 charactères';
+    }
+
+    if (!/^-?[0-9]{1,2}$/.test(e.target[1].value)) {
       modals.submitError = 'Hé ! pas touche à ce champ !!';
     }
 
