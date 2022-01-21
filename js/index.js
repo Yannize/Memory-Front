@@ -233,7 +233,9 @@ const app = {
     app.listenerInit();
 
     try {
-      const result = await fetch('http://localhost:3000/get-scores');
+      const result = await fetch(
+        'https://memory-back.herokuapp.com/get-scores'
+      );
       const scores = await result.json();
       if (scores.length > 0) {
         modals.modalScoreBoard
