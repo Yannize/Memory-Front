@@ -6,7 +6,7 @@ body {
   height: 100vh;
 
   @media only screen and (max-width: 600px) {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 
   button {
@@ -46,18 +46,16 @@ body {
       font-size: 3rem;
       font-weight: bold;
       text-shadow: 0 0 10px white;
+
+      @media only screen and (max-height: 700px) {
+        display: none;
+      }
     }
 
     .options {
       width: 100%;
       display: flex;
       justify-content: space-around;
-
-      @media only screen and (max-width: 400px) {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-      }
     }
 
     .board {
@@ -187,7 +185,8 @@ body {
     overflow-x: hidden;
 
     @media only screen and (max-width: 600px) {
-      padding: 5rem 0 1rem;
+      padding: 5rem 1rem 1rem;
+      width: 90%;
     }
 
     .close-modal {

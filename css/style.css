@@ -6,7 +6,7 @@ body {
 }
 @media only screen and (max-width: 600px) {
   body {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 }
 body button {
@@ -45,17 +45,15 @@ body #app h1 {
   font-weight: bold;
   text-shadow: 0 0 10px white;
 }
+@media only screen and (max-height: 700px) {
+  body #app h1 {
+    display: none;
+  }
+}
 body #app .options {
   width: 100%;
   display: flex;
   justify-content: space-around;
-}
-@media only screen and (max-width: 400px) {
-  body #app .options {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
 }
 body #app .board {
   width: 50%;
@@ -168,7 +166,8 @@ body .modal {
 }
 @media only screen and (max-width: 600px) {
   body .modal {
-    padding: 5rem 0 1rem;
+    padding: 5rem 1rem 1rem;
+    width: 90%;
   }
 }
 body .modal .close-modal {
