@@ -253,7 +253,7 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 200px;
+      height: 250px;
       width: 50%;
       margin: auto;
       font-size: 1.2rem;
@@ -264,6 +264,10 @@ body {
 
       label {
         margin-bottom: 1rem;
+
+        span {
+          font-size: 0.9rem;
+        }
       }
 
       input {
@@ -277,6 +281,11 @@ body {
 
       input:focus {
         border: 1px solid rgb(112, 25, 25);
+      }
+
+      p.error-message {
+        font-size: 0.9rem;
+        color: red;
       }
     }
 

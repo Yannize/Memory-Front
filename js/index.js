@@ -71,7 +71,7 @@ const app = {
       firstCard: null,
       secondCard: null,
       selectedCards: [],
-      foundedPair: [],
+      foundedPair: [1, 2, 3, 4, 5],
     };
     app.disabled = false;
     app.gameIsOver = {
@@ -226,6 +226,7 @@ const app = {
   },
 
   init: async () => {
+    console.log(window.location.pathname);
     app.board = document.querySelector('.board');
     app.btnStart = document.querySelector('.start');
     modals.init();

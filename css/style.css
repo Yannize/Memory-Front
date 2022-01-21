@@ -224,7 +224,7 @@ body .modal form.active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 250px;
   width: 50%;
   margin: auto;
   font-size: 1.2rem;
@@ -236,6 +236,9 @@ body .modal form.active {
 body .modal form.active label {
   margin-bottom: 1rem;
 }
+body .modal form.active label span {
+  font-size: 0.9rem;
+}
 body .modal form.active input {
   border: 1px solid #c8c8c8;
   border-radius: 5px;
@@ -246,6 +249,10 @@ body .modal form.active input {
 }
 body .modal form.active input:focus {
   border: 1px solid #701919;
+}
+body .modal form.active p.error-message {
+  font-size: 0.9rem;
+  color: red;
 }
 body .modal form {
   display: none;

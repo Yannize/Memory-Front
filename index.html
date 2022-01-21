@@ -32,15 +32,10 @@
       <button class="close-modal">&times;</button>
       <h2></h2>
       <p></p>
-      <form action="/add-score" method="POST">
-        <label for="pseudo">Pseudo</label>
-        <input
-          placeholder="John Doe"
-          type="text"
-          name="pseudo"
-          id="pseudo"
-          required
-        />
+      <form>
+        <label for="pseudo">Pseudo <span>(requis)</span></label>
+        <input placeholder="John Doe" type="text" name="pseudo" id="pseudo" />
+        <p class="error-message"></p>
         <input type="hidden" name="time" id="time" />
         <button class="submit">Enregistrez</button>
       </form>

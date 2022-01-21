@@ -9,6 +9,7 @@ const modals = {
   p: null,
   form: null,
   hiddenInput: null,
+  submitError: {},
 
   closeModals: (e) => {
     const elemClass = e.target.classList[0];
@@ -43,6 +44,40 @@ const modals = {
     modals.modalEndGame.classList.add('active');
   },
 
+  displayErrorMessage: (error) => {
+    modals.form.querySelector('p.error-message').textContent = error;
+  },
+
+  onSubmit: async (e) => {
+    e.preventDefault();
+    if (e.target[0].value === '') {
+      modals.submitError =
+        'vous devez entrer un pseudo pour enregistrer votre score';
+    }
+
+    if (!/^[0-9]{1,2}$/.test(e.target[1].value)) {
+      modals.submitError = 'Hé ! pas touche à ce champ !!';
+    }
+
+    if (!(e.target[0].value === '' && /^[0-9]{1,2}$/.test(e.target[1].value))) {
+      modals.submitError = '';
+    }
+
+    modals.displayErrorMessage(modals.submitError);
+
+    if (!modals.submitError) {
+      const data = new FormData(e.target);
+      try {
+        const result = await fetch('http://localhost:3000/add-score', {
+          method: 'POST',
+          body: data,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+
   init: () => {
     modals.modals = document.querySelectorAll('.modal');
     modals.bodyBlackout = document.querySelector('.body-blackout');
@@ -57,5 +92,6 @@ const modals = {
 
     document.addEventListener('click', modals.closeModals);
     modals.btnScoreBoard.addEventListener('click', modals.openScoreBoard);
+    modals.form.addEventListener('submit', modals.onSubmit);
   },
 };
