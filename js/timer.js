@@ -18,6 +18,7 @@ const timer = {
   displayAndStartTimer: () => {
     // on ajoute la classe active à la div.timer pour la rendre visible
     timer.timerDiv.classList.add('active');
+
     // on utilise une ternaire pour remplir le text content de la span affichant le décompte
     timer.timerSpan.textContent =
       // si le décompte est supérieur à 1
@@ -31,8 +32,10 @@ const timer = {
     timer.interval = setInterval(() => {
       // on décrément de 1 le décompte (toutes les 1 secondes)
       timer.countDownStart--;
+
       // on incrémente de 1 le temps écoulé (toutes les 1 sec...)
       timer.timeSpent++;
+
       // on modifie la span qui affiche le décompte (toutes les 1...)
       timer.timerSpan.textContent =
         timer.countDownStart > 1
@@ -47,6 +50,7 @@ const timer = {
         // on change la couleur de la progress bar
         timer.progressBar.style.background = 'orange';
       }
+
       // en desous de 10
       if (timer.countDownStart <= 10) {
         // on change la couleur de la progress bar
@@ -57,11 +61,14 @@ const timer = {
       if (timer.countDownStart === 0) {
         // on stop le décompte
         clearInterval(timer.interval);
+
         // un peu de style
         timer.progress.style.borderRadius = '10px';
+
         // on modifie des propriétés
         app.gameIsOver.end = true;
         app.gameIsOver.reason = 'time out';
+
         // on lance la fonction app.endGame en lui passant timer.timeoutMessage
         modals.onEndGame(timer.timeoutMessage);
       }
@@ -74,16 +81,22 @@ const timer = {
   restartTimer: () => {
     // on stop le setInterval
     clearInterval(timer.interval);
+
     // on surpprimer l'id de l'ancien setInterval
+
     timer.interval = null;
     // on reset le style de la progress bar
+
     timer.progress.style.borderRadius = '10px 0 0 10px';
     timer.progressBar.style.background = 'green';
     timer.progress.style.width = `0%`;
+
     // on remet à 60 le décompte
     timer.countDownStart = 60;
+
     // on remet à 0 le temps écoulé
     timer.timeSpent = 0;
+
     // on relance la fonction timer.displayAndStartTimer
     timer.displayAndStartTimer();
   },

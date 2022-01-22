@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
-
-/* ------------------------------------------------------------------- */
-/* -----------------------------BODY---------------------------------- */
-/* ------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
 body {
   font-family: Raleway, sans-serif;
   background: #202f3d;
@@ -13,10 +9,6 @@ body {
     padding: 1rem 0 6rem;
   }
 }
-
-/* ------------------------------------------------------------------- */
-/* -----------------------------BODY---------------------------------- */
-/* ------------------------------------------------------------------- */
 body button {
   width: fit-content;
   color: #fff;
@@ -39,10 +31,6 @@ body button:hover {
   color: #535353;
   border: 2px solid #3f87a6;
 }
-
-/* ------------------------------------------------------------------- */
-/* ------------------------------APP---------------------------------- */
-/* ------------------------------------------------------------------- */
 body #app {
   height: 100%;
   padding: 1rem;
@@ -72,10 +60,6 @@ body #app .options {
   display: flex;
   justify-content: space-around;
 }
-
-/* ------------------------------------------------------------------- */
-/* -----------------------------BOARD----------------------------------*/
-/* ------------------------------------------------------------------- */
 body #app .board {
   width: 50%;
   margin: 0 auto;
@@ -97,10 +81,6 @@ body #app .board {
     grid-template-columns: repeat(6, 1fr);
   }
 }
-
-/* ------------------------------------------------------------------- */
-/* ----------------------------------CARD----------------------------- */
-/* ------------------------------------------------------------------- */
 body #app .board .card {
   position: relative;
   user-drag: none;
@@ -139,10 +119,6 @@ body #app .board .card.flipped .back-face {
   transform: rotateY(90deg);
   transition-delay: 0s;
 }
-
-/* ------------------------------------------------------------------- */
-/* ------------------------TIMER et PROGRESSBAR----------------------- */
-/* ------------------------------------------------------------------- */
 body #app .timer {
   display: none;
 }
@@ -176,10 +152,6 @@ body #app .timer.active .progress-bar .progress {
   height: 100%;
   width: 0%;
 }
-
-/* ------------------------------------------------------------------- */
-/* -------------------------------MODAL-------------------------------- */
-/* ------------------------------------------------------------------- */
 body .modal {
   width: 70vw;
   max-height: 50vh;
@@ -224,10 +196,6 @@ body .modal h2 {
   font-weight: bold;
   margin-bottom: 1rem;
 }
-
-/* ------------------------------------------------------------------- */
-/* --------------------------------TABLE------------------------------ */
-/* ------------------------------------------------------------------- */
 body .modal table {
   width: 100%;
   border-collapse: collapse;
@@ -260,10 +228,6 @@ body .modal p {
 body .modal table.disabled {
   display: none;
 }
-
-/* ------------------------------------------------------------------- */
-/* -----------------------------FORM---------------------------------- */
-/* ------------------------------------------------------------------- */
 body .modal form.active {
   display: flex;
   flex-direction: column;
@@ -299,17 +263,40 @@ body .modal form.active p.error-message {
   font-size: 0.9rem;
   color: red;
 }
+body .modal form.active p {
+  font-size: 0.9rem;
+  color: green;
+}
 body .modal form {
+  display: none;
+}
+body .modal.score-board .spinner.active {
+  display: block;
+  margin: auto;
+  border: 10px solid #f3f3f3;
+  /* Light grey */
+  border-top: 10px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 2s ease-in-out infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body .modal.score-board .spinner {
   display: none;
 }
 body .modal.active {
   opacity: 1;
   pointer-events: auto;
 }
-
-/* ------------------------------------------------------------------- */
-/* --------------------------BLACKOUT--------------------------------- */
-/* ------------------------------------------------------------------- */
 body .body-blackout {
   position: absolute;
   z-index: 1;
