@@ -128,6 +128,9 @@ const modals = {
     // on empêche le comportement par défaut d'un submit de formulaire qui est le rafraîchissement de la page
     e.preventDefault();
 
+    // on met la classe error-message pour la prochaine saisie du formulaire
+    modals.formMessage.classList.add('error-message');
+
     // on vérifie ce qui est entré dans l'input pseudo et l'input hidden (l'input hidden contient le temps écoulé, ce n'est pas à l'utilisateur de le remplir)
     // si c'est vide on stock un message d'erreur adapté
     if (e.target[0].value === '') {
@@ -157,9 +160,6 @@ const modals = {
 
     // s'il n'y a pas de message d'erreur, c'est que tout est OK
     if (!modals.submitMessage.error) {
-      // on remet la class error-message pour la prochaine saisie du formulaire
-      modals.formMessage.classList.add('error-message');
-
       // on crée une instance de FormData grâce à la classe native JS FormData et on lui passe le formulaire
       // ça va automatiquement remplir le FormData avec le name des inputs en clef et leur value en valeur
       const data = new FormData(e.target);
