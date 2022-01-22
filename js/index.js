@@ -75,7 +75,7 @@ const app = {
       firstCard: null,
       secondCard: null,
       selectedCards: [],
-      foundedPair: [1, 2, 3, 4, 5],
+      foundedPair: [],
     };
     app.disabled = false;
     app.gameIsOver = {
