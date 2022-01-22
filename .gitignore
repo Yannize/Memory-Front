@@ -1,0 +1,3 @@
+# liste de fichier ou dossier qui sera ignoré par Git
+
+.vscode/
