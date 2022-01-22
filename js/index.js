@@ -317,7 +317,7 @@ const app = {
       modals.isLoading();
 
       // On fetch (si pas spécifié la methode est en GET, opération asynchrone, donc on await)
-      const result = await fetch('https://memory-back.herokuapp.com/');
+      const result = await fetch(utils.url_back);
 
       // On converti le resultat en format JSON (opération asynchrone, donc on await)
       const scores = await result.json();

@@ -1,4 +1,5 @@
 const utils = {
+  url_back: 'https://memory-back.herokuapp.com',
   /**
    * Fonction de mélange des cartes
    * @param {Array} cards - un tableau d'objet

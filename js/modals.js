@@ -167,13 +167,10 @@ const modals = {
       // on essaie de fetch avec la méthode POST sur la route /add-score ce FormData en le plaçant dans le body de la requête
       try {
         // asynchrone donc on await
-        const result = await fetch(
-          'https://memory-back.herokuapp.com/add-score',
-          {
-            method: 'POST',
-            body: data,
-          }
-        );
+        const result = await fetch(`${utils.url_back}/add-score`, {
+          method: 'POST',
+          body: data,
+        });
 
         // grâce au try catch, s'il n'y a pas d'erreur pendant l'await on redirige vers https://memory-back.herokuapp.com/Memory-Front/
         // ça aura pour effet de rafraîchir la page, et de voir le nouveau score entré à l'arrivé sur le site
